@@ -104,7 +104,7 @@ public class DashBord extends javax.swing.JFrame {
 
         Menu.setBackground(new java.awt.Color(255, 255, 51));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/libro.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/g8/Imagenes/libro.jpg"))); // NOI18N
 
         btn2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/account-multiple.png"))); // NOI18N
         btn2.setText("Usauarios");
