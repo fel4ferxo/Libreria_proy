@@ -32,6 +32,10 @@ public class vLibro {
         this.imagen_link = imagen_link;
     }
 
+    public vLibro() {    
+        
+    }
+    
     //Constructor Libros
     
     public int getCodigo() {

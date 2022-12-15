@@ -211,19 +211,20 @@ public class RegistroUsuario extends javax.swing.JPanel {
     private void btnGuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarMouseClicked
         com.g8.Models.vUsuario user = new vUsuario();
         
-        user.setNombre_u("");
-        user.setApellidos_u("");
-        user.setDni_u("");
-        user.setFecha_nacimiento_u("");
-        user.setUsuario_u("");
-        user.setPassword_u("");
+        user.setNombre_u(tfNombre.getText());
+        user.setApellidos_u(tfApellido.getText());
+        user.setDni_u(tfDni.getText());
+        user.setFecha_nacimiento_u(tfNacimiento.getText());
+        user.setUsuario_u(tfUsuario.getText());
+        user.setPassword_u(tfContrasena.getText());
         
         try {
             DAOUsuario dao = new fUsuario();
             dao.registrar(user);
         } catch (Exception ex) {
             Logger.getLogger(RegistroUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }       
+        DashBord.ShowJPanel(new Usuarios());
     }//GEN-LAST:event_btnGuardarMouseClicked
 
 

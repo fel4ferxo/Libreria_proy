@@ -5,6 +5,7 @@
 package com.g8.Presentacion;
 
 import com.formdev.flatlaf.FlatLightLaf;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -33,9 +34,9 @@ public class login extends javax.swing.JFrame {
         logoPrincipal = new javax.swing.JLabel();
         iniciar_sesion = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        escribir_su_usuario = new javax.swing.JTextField();
+        lbuser = new javax.swing.JTextField();
         contraseña = new javax.swing.JLabel();
-        escribir_contraseña = new javax.swing.JPasswordField();
+        lbpassword = new javax.swing.JPasswordField();
         check = new javax.swing.JCheckBox();
         registrarse = new javax.swing.JButton();
         ingresar = new javax.swing.JButton();
@@ -85,15 +86,15 @@ public class login extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Usuario");
 
-        escribir_su_usuario.setBackground(new java.awt.Color(147, 147, 147));
-        escribir_su_usuario.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
-        escribir_su_usuario.setForeground(new java.awt.Color(204, 204, 204));
-        escribir_su_usuario.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        escribir_su_usuario.setText("Escribir su usuario");
-        escribir_su_usuario.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
-        escribir_su_usuario.addActionListener(new java.awt.event.ActionListener() {
+        lbuser.setBackground(new java.awt.Color(147, 147, 147));
+        lbuser.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        lbuser.setForeground(new java.awt.Color(204, 204, 204));
+        lbuser.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        lbuser.setText("Escribir su usuario");
+        lbuser.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        lbuser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                escribir_su_usuarioActionPerformed(evt);
+                lbuserActionPerformed(evt);
             }
         });
 
@@ -101,10 +102,10 @@ public class login extends javax.swing.JFrame {
         contraseña.setForeground(new java.awt.Color(0, 0, 0));
         contraseña.setText("Contraseña:");
 
-        escribir_contraseña.setBackground(new java.awt.Color(145, 145, 145));
-        escribir_contraseña.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
-        escribir_contraseña.setForeground(new java.awt.Color(204, 204, 204));
-        escribir_contraseña.setText("jPasswordField1");
+        lbpassword.setBackground(new java.awt.Color(145, 145, 145));
+        lbpassword.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        lbpassword.setForeground(new java.awt.Color(204, 204, 204));
+        lbpassword.setText("jPasswordField1");
 
         check.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
         check.setForeground(new java.awt.Color(255, 255, 255));
@@ -117,6 +118,11 @@ public class login extends javax.swing.JFrame {
         ingresar.setBackground(new java.awt.Color(102, 255, 0));
         ingresar.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
         ingresar.setText("Ingresar");
+        ingresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ingresarMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -134,8 +140,8 @@ public class login extends javax.swing.JFrame {
                             .addGap(36, 36, 36)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(escribir_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(escribir_su_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbuser, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel1)
                                 .addComponent(check, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
@@ -154,11 +160,11 @@ public class login extends javax.swing.JFrame {
                     .addGap(61, 61, 61)
                     .addComponent(jLabel1)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(escribir_su_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbuser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(27, 27, 27)
                     .addComponent(contraseña)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(escribir_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbpassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(check)
                     .addGap(18, 18, 18)
@@ -171,9 +177,27 @@ public class login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void escribir_su_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_escribir_su_usuarioActionPerformed
+    private void lbuserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbuserActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_escribir_su_usuarioActionPerformed
+    }//GEN-LAST:event_lbuserActionPerformed
+
+    private void ingresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ingresarMouseClicked
+        
+        String usuario = "admin";
+        String password = "123";
+        
+        String Pass = new String(lbpassword.getPassword());
+        
+        if(lbuser.getText().equals(usuario) && Pass.equals(password)){
+            Tienda td = new Tienda();
+            td.setVisible(true);
+            dispose();
+        } else {
+        
+            JOptionPane.showMessageDialog(this, "Usuario / Password Incorrecto");
+        
+        }
+    }//GEN-LAST:event_ingresarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -193,11 +217,11 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JPanel bg2;
     private javax.swing.JCheckBox check;
     private javax.swing.JLabel contraseña;
-    private javax.swing.JPasswordField escribir_contraseña;
-    private javax.swing.JTextField escribir_su_usuario;
     private javax.swing.JButton ingresar;
     private javax.swing.JLabel iniciar_sesion;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPasswordField lbpassword;
+    private javax.swing.JTextField lbuser;
     private javax.swing.JLabel libreriaG8;
     private javax.swing.JLabel logoPrincipal;
     private javax.swing.JButton registrarse;

@@ -12,6 +12,7 @@ import com.mysql.jdbc.Statement;
 import java.sql.Connection;
 import javax.swing.table.DefaultTableModel;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -22,7 +23,7 @@ public class fLibro extends vConexion implements DAOLibro {
         
         var sSQL="insert into vlibro (nombre_l,autor_l,aniopub_l,volumen_l,edicion_l,descripcion_l,precio_l,imagen_link)" + "values (?,?,?,?,?,?,?,?)";
         try {
-
+            this.Conectar();
             PreparedStatement pst=this.conexion.prepareStatement(sSQL);
             pst.setString(1, libro.getNombre_l());
             pst.setString(2, libro.getAutor_l());
@@ -59,7 +60,43 @@ public class fLibro extends vConexion implements DAOLibro {
 
     @Override
     public List<vLibro> listar() throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        List<vLibro> lista = null;
+        var sSQL="select * from vlibro";
+    
+        try{
+        
+            this.Conectar();
+            PreparedStatement pst=this.conexion.prepareStatement(sSQL);
+            new ArrayList();
+            ResultSet rs = pst.executeQuery();
+            while(rs.next()) {
+            
+                vLibro book = new vLibro();
+                book.getCodigo();
+                book.getNombre_l();
+                book.getAutor_l();
+                book.getAniopub_l();
+                book.getVolumen_l();
+                book.getEdicion_l();
+                book.getDescripcion_l();
+                book.getPrecio_l();
+                lista.add(book);
+                
+            }
+            rs.close();
+            pst.close();
+        
+        } catch (Exception e){
+        
+            throw e;
+            
+        } finally {
+        
+            this.Cerrar();
+            
+        }
+        return lista;
+    
     }
   
     /*

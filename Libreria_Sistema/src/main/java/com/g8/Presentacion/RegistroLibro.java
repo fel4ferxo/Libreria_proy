@@ -4,6 +4,12 @@
  */
 package com.g8.Presentacion;
 
+import com.g8.Interfaces.DAOLibro;
+import com.g8.Logica.fLibro;
+import com.g8.Models.vLibro;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author ferna
@@ -31,18 +37,18 @@ public class RegistroLibro extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         tfNombre = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        tfNombre1 = new javax.swing.JTextField();
-        tfNombre3 = new javax.swing.JTextField();
+        tfAutor = new javax.swing.JTextField();
+        tfAnio = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        tfNombre4 = new javax.swing.JTextField();
+        tfVolumen = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        tfNombre5 = new javax.swing.JTextField();
+        tfEdicion = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         btnBorrar = new javax.swing.JButton();
         btnGuardar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        tfDescripcion = new javax.swing.JTextArea();
         tfPrecio = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -80,15 +86,20 @@ public class RegistroLibro extends javax.swing.JPanel {
         btnGuardar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnGuardar.setText("Guardar");
         btnGuardar.setPreferredSize(new java.awt.Dimension(100, 30));
+        btnGuardar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnGuardarMouseClicked(evt);
+            }
+        });
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
             }
         });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        tfDescripcion.setColumns(20);
+        tfDescripcion.setRows(5);
+        jScrollPane1.setViewportView(tfDescripcion);
 
         tfPrecio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,7 +109,7 @@ public class RegistroLibro extends javax.swing.JPanel {
 
         jLabel3.setText("Precio");
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/iStock.jpg"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/g8/Imagenes/iStock.jpg"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -125,14 +136,14 @@ public class RegistroLibro extends javax.swing.JPanel {
                             .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tfNombre1)
+                            .addComponent(tfAutor)
                             .addComponent(tfNombre)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addComponent(txtLibro)
                                 .addGap(165, 165, 165))
-                            .addComponent(tfNombre5)
-                            .addComponent(tfNombre3)
-                            .addComponent(tfNombre4)
+                            .addComponent(tfEdicion)
+                            .addComponent(tfAnio)
+                            .addComponent(tfVolumen)
                             .addComponent(jScrollPane1)
                             .addComponent(tfPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(108, 108, 108))
@@ -151,18 +162,18 @@ public class RegistroLibro extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(tfNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tfAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(tfNombre3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tfAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tfNombre4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfVolumen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tfNombre5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfEdicion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -209,6 +220,28 @@ public class RegistroLibro extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfPrecioActionPerformed
 
+    private void btnGuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarMouseClicked
+        vLibro libro = new vLibro();
+        
+        libro.setNombre_l(tfNombre.getText());
+        libro.setAutor_l(tfAutor.getText());
+        libro.setAniopub_l(tfAnio.getText());
+        libro.setVolumen_l(tfVolumen.getText());
+        libro.setEdicion_l(tfEdicion.getText());
+        libro.setDescripcion_l(tfDescripcion.getText());
+        libro.setPrecio_l(tfPrecio.getText());
+        libro.setImagen_link("LINK PRUEBA");
+        
+        try {
+        
+            DAOLibro dao = new fLibro();
+            dao.registrar(libro);            
+        } catch(Exception ex){
+        
+            Logger.getLogger(RegistroLibro.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnGuardarMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBorrar;
@@ -223,13 +256,13 @@ public class RegistroLibro extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField tfAnio;
+    private javax.swing.JTextField tfAutor;
+    private javax.swing.JTextArea tfDescripcion;
+    private javax.swing.JTextField tfEdicion;
     private javax.swing.JTextField tfNombre;
-    private javax.swing.JTextField tfNombre1;
-    private javax.swing.JTextField tfNombre3;
-    private javax.swing.JTextField tfNombre4;
-    private javax.swing.JTextField tfNombre5;
     private javax.swing.JTextField tfPrecio;
+    private javax.swing.JTextField tfVolumen;
     private javax.swing.JLabel txtLibro;
     // End of variables declaration//GEN-END:variables
 }

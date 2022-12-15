@@ -24,7 +24,7 @@ public class fComprador extends vConexion implements DAOComprador{
         
         var sSQL="insert into vcomprador (nombre_v,apellidos_v,dni_v,fecha_nacimiento_v)" + "values (?,?,?,?)";
         try {
-
+            this.Conectar();
             PreparedStatement pst=this.conexion.prepareStatement(sSQL);
             pst.setString(1, comprador.getNombre_v());
             pst.setString(2, comprador.getApellidos_v());

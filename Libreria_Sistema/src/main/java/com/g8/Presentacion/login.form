@@ -40,8 +40,8 @@
                           <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="contraseña" alignment="0" min="-2" pref="137" max="-2" attributes="0"/>
-                              <Component id="escribir_contraseña" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
-                              <Component id="escribir_su_usuario" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
+                              <Component id="lbpassword" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
+                              <Component id="lbuser" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
                               <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="check" alignment="0" min="-2" pref="165" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
@@ -67,11 +67,11 @@
                   <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="escribir_su_usuario" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbuser" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Component id="contraseña" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="escribir_contraseña" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbpassword" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="check" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -167,7 +167,7 @@
         <Property name="text" type="java.lang.String" value="Usuario"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="escribir_su_usuario">
+    <Component class="javax.swing.JTextField" name="lbuser">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="93" green="93" red="93" type="rgb"/>
@@ -183,7 +183,7 @@
         <Property name="debugGraphicsOptions" type="int" value="-1"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="escribir_su_usuarioActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lbuserActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="contrase&#xf1;a">
@@ -197,7 +197,7 @@
         <Property name="text" type="java.lang.String" value="Contrase&#xf1;a:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JPasswordField" name="escribir_contrase&#xf1;a">
+    <Component class="javax.swing.JPasswordField" name="lbpassword">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="91" green="91" red="91" type="rgb"/>
@@ -243,6 +243,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Ingresar"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ingresarMouseClicked"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

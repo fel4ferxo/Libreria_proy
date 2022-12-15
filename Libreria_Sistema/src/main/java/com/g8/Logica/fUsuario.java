@@ -9,6 +9,8 @@ package com.g8.Logica;
 import com.g8.Interfaces.DAOUsuario;
 import com.g8.Models.vUsuario;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 
 public class fUsuario extends vConexion implements DAOUsuario{
@@ -20,14 +22,15 @@ public class fUsuario extends vConexion implements DAOUsuario{
         try{
         
             this.Conectar();
-           PreparedStatement pst=this.conexion.prepareStatement(sSQL);
-           pst.setString(1, usuario.getNombre_u());
-           pst.setString(2, usuario.getApellidos_u());
-           pst.setString(3, usuario.getDni_u());
-           pst.setString(4, usuario.getFecha_nacimiento_u());
-           pst.setString(5, usuario.getUsuario_u());
-           pst.setString(6, usuario.getPassword_u());
-           pst.executeUpdate();
+            PreparedStatement pst=this.conexion.prepareStatement(sSQL);
+            pst.setString(1, usuario.getNombre_u());
+            pst.setString(2, usuario.getApellidos_u());
+            pst.setString(3, usuario.getDni_u());
+            pst.setString(4, usuario.getFecha_nacimiento_u());
+            pst.setString(5, usuario.getUsuario_u());
+            pst.setString(6, usuario.getPassword_u());
+            pst.executeUpdate();
+            pst.close();
         
         } catch (Exception e){
         
@@ -51,8 +54,42 @@ public class fUsuario extends vConexion implements DAOUsuario{
     }
 
     @Override
-    public List<vUsuario> listar() throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public List<vUsuario> listar() throws Exception {        
+        List<vUsuario> lista = null;
+        var sSQL="select * from vusuario";
+    
+        try{
+        
+            this.Conectar();
+            PreparedStatement pst=this.conexion.prepareStatement(sSQL);
+            new ArrayList();
+            ResultSet rs = pst.executeQuery();
+            while(rs.next()) {
+            
+                vUsuario user = new vUsuario();
+                user.getCodigo_u();
+                user.getNombre_u();
+                user.getApellidos_u();
+                user.getDni_u();
+                user.getFecha_nacimiento_u();
+                user.getUsuario_u();
+                user.getPassword_u();
+                lista.add(user);
+                
+            }
+            rs.close();
+            pst.close();
+        
+        } catch (Exception e){
+        
+            throw e;
+            
+        } finally {
+        
+            this.Cerrar();
+            
+        }
+        return lista;
     }
  
     

@@ -4,6 +4,13 @@
  */
 package com.g8.Presentacion;
 
+import com.g8.Interfaces.DAOLibro;
+import com.g8.Logica.fLibro;
+import com.g8.Models.vLibro;
+import java.awt.Color;
+import java.util.List;
+import javax.swing.JLabel;
+
 /**
  *
  * @author ferna
@@ -14,7 +21,29 @@ public class Tienda extends javax.swing.JPanel {
      * Creates new form Tienda
      */
     public Tienda() {
-        initComponents();
+        initComponents();        
+        InitStyle();
+        LoadData();
+    }
+
+    private void InitStyle() {
+        
+        titulo.putClientProperty("FlatLaf.styleClass", "h1");
+        titulo.setForeground(Color.black);
+        
+    }
+    
+    private void LoadData() {
+    
+        try {
+        
+            DAOLibro dao = new fLibro();
+            dao.listar().forEach((u) -> System.out.println(u));
+        } catch(Exception ex){
+        
+            System.out.println(ex.getMessage());
+        }
+    
     }
 
     /**

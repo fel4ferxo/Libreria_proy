@@ -57,14 +57,16 @@ public class DashBord extends javax.swing.JFrame {
         
     }
     
-    private void initContent() {
-        
-        Tienda td = new Tienda();
-        td.setSize(911, 480);
-        td.setLocation(0,0);
+    private void initContent() {    
+        ShowJPanel(new Tienda());
+    }
+           
+    public static void ShowJPanel(JPanel p){       
+        p.setSize(911, 480);
+        p.setLocation(0,0);
         
         content.removeAll();
-        content.add(td, BorderLayout.CENTER);
+        content.add(p, BorderLayout.CENTER);
         content.revalidate();
         content.repaint();
         
@@ -105,12 +107,22 @@ public class DashBord extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/libro.jpg"))); // NOI18N
 
         btn2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/account-multiple.png"))); // NOI18N
-        btn2.setText("Registro Usuario");
+        btn2.setText("Usauarios");
+        btn2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn2MouseClicked(evt);
+            }
+        });
 
         appName.setText("Libreria G8");
 
         btn1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/home-outline.png"))); // NOI18N
         btn1.setText("Tienda");
+        btn1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn1MouseClicked(evt);
+            }
+        });
         btn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn1ActionPerformed(evt);
@@ -119,6 +131,11 @@ public class DashBord extends javax.swing.JFrame {
 
         btn4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/file-chart.png"))); // NOI18N
         btn4.setText("Reporte Ventas");
+        btn4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn4MouseClicked(evt);
+            }
+        });
         btn4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn4ActionPerformed(evt);
@@ -127,6 +144,11 @@ public class DashBord extends javax.swing.JFrame {
 
         btn3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/book-open-page-variant.png"))); // NOI18N
         btn3.setText("Inventario");
+        btn3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn3MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout MenuLayout = new javax.swing.GroupLayout(Menu);
         Menu.setLayout(MenuLayout);
@@ -270,6 +292,22 @@ public class DashBord extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btn4ActionPerformed
 
+    private void btn2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn2MouseClicked
+        DashBord.ShowJPanel(new Usuarios());
+    }//GEN-LAST:event_btn2MouseClicked
+
+    private void btn3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn3MouseClicked
+        DashBord.ShowJPanel(new Inventario());
+    }//GEN-LAST:event_btn3MouseClicked
+
+    private void btn4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn4MouseClicked
+        DashBord.ShowJPanel(new ReporteVentas());
+    }//GEN-LAST:event_btn4MouseClicked
+
+    private void btn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn1MouseClicked
+        DashBord.ShowJPanel(new Tienda());
+    }//GEN-LAST:event_btn1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -314,7 +352,7 @@ public class DashBord extends javax.swing.JFrame {
     private javax.swing.JButton btn2;
     private javax.swing.JButton btn3;
     private javax.swing.JButton btn4;
-    private javax.swing.JPanel content;
+    private static javax.swing.JPanel content;
     private javax.swing.JLabel correo;
     private javax.swing.JLabel fecha;
     private javax.swing.JLabel jLabel1;

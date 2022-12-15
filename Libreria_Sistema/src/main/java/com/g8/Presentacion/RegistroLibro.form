@@ -64,15 +64,15 @@
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="tfNombre1" max="32767" attributes="0"/>
+                              <Component id="tfAutor" max="32767" attributes="0"/>
                               <Component id="tfNombre" max="32767" attributes="0"/>
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="txtLibro" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="165" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="tfNombre5" alignment="0" max="32767" attributes="0"/>
-                              <Component id="tfNombre3" max="32767" attributes="0"/>
-                              <Component id="tfNombre4" alignment="0" max="32767" attributes="0"/>
+                              <Component id="tfEdicion" alignment="0" max="32767" attributes="0"/>
+                              <Component id="tfAnio" max="32767" attributes="0"/>
+                              <Component id="tfVolumen" alignment="0" max="32767" attributes="0"/>
                               <Component id="jScrollPane1" max="32767" attributes="0"/>
                               <Component id="tfPrecio" alignment="0" min="-2" pref="88" max="-2" attributes="0"/>
                           </Group>
@@ -97,21 +97,21 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="tfNombre1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="tfAutor" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="tfNombre3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="tfAnio" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="tfNombre4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="tfVolumen" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="tfNombre5" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="tfEdicion" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -163,23 +163,23 @@
             <Property name="text" type="java.lang.String" value="Autor"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="tfNombre1">
+        <Component class="javax.swing.JTextField" name="tfAutor">
         </Component>
-        <Component class="javax.swing.JTextField" name="tfNombre3">
+        <Component class="javax.swing.JTextField" name="tfAnio">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
             <Property name="text" type="java.lang.String" value="Anio"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="tfNombre4">
+        <Component class="javax.swing.JTextField" name="tfVolumen">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
             <Property name="text" type="java.lang.String" value="Volumen"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="tfNombre5">
+        <Component class="javax.swing.JTextField" name="tfEdicion">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
@@ -225,6 +225,7 @@
             </Property>
           </Properties>
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnGuardarMouseClicked"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGuardarActionPerformed"/>
           </Events>
         </Component>
@@ -235,7 +236,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTextArea" name="jTextArea1">
+            <Component class="javax.swing.JTextArea" name="tfDescripcion">
               <Properties>
                 <Property name="columns" type="int" value="20"/>
                 <Property name="rows" type="int" value="5"/>
@@ -256,7 +257,7 @@
         <Component class="javax.swing.JLabel" name="jLabel8">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/iStock.jpg"/>
+              <Image iconType="3" name="/com/g8/Imagenes/iStock.jpg"/>
             </Property>
           </Properties>
         </Component>

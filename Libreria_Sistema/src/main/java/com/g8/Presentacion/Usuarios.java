@@ -8,21 +8,22 @@ import com.g8.Interfaces.DAOLibro;
 import com.g8.Interfaces.DAOUsuario;
 import com.g8.Logica.fLibro;
 import com.g8.Logica.fUsuario;
-import com.g8.Models.vLibro;
 import com.g8.Models.vUsuario;
 import java.awt.Color;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author ferna
  */
-public class Inventario extends javax.swing.JPanel {
+public class Usuarios extends javax.swing.JPanel {
 
     /**
-     * Creates new form Inventario
+     * Creates new form Usuarios
      */
-    public Inventario() {
+    public Usuarios() {
         initComponents();
         InitStyle();
         LoadData();
@@ -39,7 +40,7 @@ public class Inventario extends javax.swing.JPanel {
     
         try {
         
-            DAOLibro dao = new fLibro();
+            DAOUsuario dao = new fUsuario();
             dao.listar().forEach((u) -> System.out.println(u));
         } catch(Exception ex){
         
@@ -48,8 +49,6 @@ public class Inventario extends javax.swing.JPanel {
     
     }
     
-    
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -63,9 +62,9 @@ public class Inventario extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tbLibros = new javax.swing.JTable();
         txtInv = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        btnNuevo2 = new javax.swing.JButton();
+        btnNuevo = new javax.swing.JButton();
         btnNuevo1 = new javax.swing.JButton();
+        btnNuevo2 = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(911, 480));
 
@@ -84,25 +83,15 @@ public class Inventario extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tbLibros);
 
-        txtInv.setText("Inventario de Libros");
+        txtInv.setText("Listado de Usuarios");
 
-        jButton1.setBackground(new java.awt.Color(51, 255, 0));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("Nuevo Libro");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnNuevo.setBackground(new java.awt.Color(51, 255, 51));
+        btnNuevo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnNuevo.setForeground(new java.awt.Color(0, 0, 0));
+        btnNuevo.setText("Nuevo Usuario");
+        btnNuevo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
-            }
-        });
-
-        btnNuevo2.setBackground(new java.awt.Color(255, 51, 51));
-        btnNuevo2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnNuevo2.setForeground(new java.awt.Color(255, 255, 255));
-        btnNuevo2.setText("Eliminar");
-        btnNuevo2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnNuevo2MouseClicked(evt);
+                btnNuevoMouseClicked(evt);
             }
         });
 
@@ -116,41 +105,50 @@ public class Inventario extends javax.swing.JPanel {
             }
         });
 
+        btnNuevo2.setBackground(new java.awt.Color(255, 51, 51));
+        btnNuevo2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnNuevo2.setForeground(new java.awt.Color(255, 255, 255));
+        btnNuevo2.setText("Eliminar");
+        btnNuevo2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnNuevo2MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap(44, Short.MAX_VALUE)
+                .addContainerGap(43, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addComponent(txtInv)
                         .addGap(399, 399, 399))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(btnNuevo2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnNuevo1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton1))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 831, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(36, 36, 36))))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 831, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addComponent(btnNuevo2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnNuevo1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnNuevo)
+                        .addGap(72, 72, 72))))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(44, Short.MAX_VALUE)
+                .addContainerGap(43, Short.MAX_VALUE)
                 .addComponent(txtInv)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnNuevo1)
-                        .addComponent(btnNuevo2))
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnNuevo)
+                    .addComponent(btnNuevo1)
+                    .addComponent(btnNuevo2))
+                .addGap(32, 32, 32))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -165,23 +163,23 @@ public class Inventario extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        DashBord.ShowJPanel(new RegistroLibro());
-    }//GEN-LAST:event_jButton1MouseClicked
-
-    private void btnNuevo2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNuevo2MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnNuevo2MouseClicked
+    private void btnNuevoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNuevoMouseClicked
+        DashBord.ShowJPanel(new RegistroUsuario());
+    }//GEN-LAST:event_btnNuevoMouseClicked
 
     private void btnNuevo1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNuevo1MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNuevo1MouseClicked
 
+    private void btnNuevo2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNuevo2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnNuevo2MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btnNuevo1;
     private javax.swing.JButton btnNuevo2;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tbLibros;
