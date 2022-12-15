@@ -9,16 +9,58 @@ package com.g8.Logica;
  * @author Fernando Reinoso Revilla
  */
 
-import com.g8.Datos.vRegistroVentas;
+import com.g8.Interfaces.DAORegistroVentas;
+import com.g8.Models.vRegistroVentas;
 import com.mysql.jdbc.Statement;
 import java.sql.Connection;
 import javax.swing.table.DefaultTableModel;
 import java.sql.*;
+import java.util.List;
 import javax.swing.JOptionPane;
 
-public class fRegistroVentas {
+public class fRegistroVentas extends vConexion implements DAORegistroVentas{
+
+    @Override
+    public void registrar(vRegistroVentas registro) throws Exception {
+        var sSQL="insert into vregistroventas (codigo,codigo_v,precio_venta,tipo_entrega,modo_pago,info_extra)" + "values (?,?,?,?,?,?)";
+        
+        try {
+           
+            this.Conectar();
+            PreparedStatement pst=this.conexion.prepareStatement(sSQL);
+            pst.setInt(1, registro.getCodigo_r());
+            pst.setString(2, registro.getCodigo());
+            pst.setString(3, registro.getCodigo_v());
+            pst.setDouble(4, registro.getPrecio_venta());
+            pst.setString(5, registro.getTipo_entrega());
+            pst.setString(6, registro.getModo_pago());
+            pst.setString(7, registro.getInfo_extra());
+
+            int n=pst.executeUpdate();
+
+        } catch (Exception e){
+        
+            throw e;
+            
+        } finally {
+        
+            this.Cerrar();
+            
+        }
+        
+    }
+
+    @Override
+    public List<vRegistroVentas> listar() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+ 
+    
+    
+}
+/*    
     private vConexion mysql = new vConexion ();
-    private Connection cn = mysql.conectar();
+    private Connection cn = mysql.conexion;
     private String sSQL = "";    
     
     public DefaultTableModel mostrar(String buscar)
@@ -79,3 +121,4 @@ public class fRegistroVentas {
        }
    }
 }
+*/

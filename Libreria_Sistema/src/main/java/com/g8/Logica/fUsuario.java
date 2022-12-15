@@ -6,19 +6,64 @@ package com.g8.Logica;
  * @author Fernando Reinoso Revilla
  */
 
-import com.g8.Datos.vUsuario;
-import com.mysql.jdbc.Statement;
-import java.sql.Connection;
-import javax.swing.table.DefaultTableModel;
-import java.sql.*;
-import javax.swing.JOptionPane;
+import com.g8.Interfaces.DAOUsuario;
+import com.g8.Models.vUsuario;
+import java.sql.PreparedStatement;
+import java.util.List;
 
-public class fUsuario {
+public class fUsuario extends vConexion implements DAOUsuario{
+
+    @Override
+    public void registrar(vUsuario usuario) throws Exception {
+        var sSQL="insert into vusuario (nombre_u,apellidos_u,dni_u,fecha_nacimiento_u,usuario_u,password_u)" + "values ?,?,?,?,?,?)";
+    
+        try{
+        
+            this.Conectar();
+           PreparedStatement pst=this.conexion.prepareStatement(sSQL);
+           pst.setString(1, usuario.getNombre_u());
+           pst.setString(2, usuario.getApellidos_u());
+           pst.setString(3, usuario.getDni_u());
+           pst.setString(4, usuario.getFecha_nacimiento_u());
+           pst.setString(5, usuario.getUsuario_u());
+           pst.setString(6, usuario.getPassword_u());
+           pst.executeUpdate();
+        
+        } catch (Exception e){
+        
+            throw e;
+            
+        } finally {
+        
+            this.Cerrar();
+            
+        }
+    }
+
+    @Override
+    public void modificar(vUsuario usuario) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void eliminar(vUsuario usuario) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public List<vUsuario> listar() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+ 
+    
+}
+
+/*
     private vConexion mysql = new vConexion ();
-    private Connection cn = mysql.conectar();
+    private Connection cn = mysql.conexion;
     private String sSQL = "";    
 
-    public DefaultTableModel mostrar(String buscar)
+public DefaultTableModel mostrar(String buscar)
     {
     DefaultTableModel modelo;
     String [] titulos={"codigo_u","nombre_u","apellidos_u","dni_u","fecha_nacimiento_u","usuario_u","password_u"};
@@ -161,7 +206,4 @@ public class fUsuario {
            return false;
        }
    }
-
- 
-    
-}
+*/

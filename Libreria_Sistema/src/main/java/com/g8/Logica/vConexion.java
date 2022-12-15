@@ -12,35 +12,41 @@ package com.g8.Logica;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import javax.swing.JOptionPane;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class vConexion {
+    
+    protected Connection conexion;
+    private final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+    
     public String db = "libreria_Ventas";
-    public String url = "jdbc:mysql://localhost:3306/" + db;
+    private final String DB_URL = "jdbc:mysql://localhost:3306/" + db;
+    
     public String user = "root";
     public String pass = "";
-        //Crearemos un constructor
-    public vConexion() {
-    }
-    //Funcion para conectarme a la BD
-    public Connection conectar()
-    {
-        Connection link=null;
+    
+    public void Conectar() throws ClassNotFoundException {
         
-        try
-        {
-        //Cargare el driver de la conexion
-            Class.forName("org.gjt.mm.mysql.Driver");
-        //Creo un enlace hacia las Base de datos
-            link=DriverManager.getConnection(this.url,this.user,this.pass);
+        try {
+            conexion = DriverManager.getConnection(DB_URL, user, pass);
+            Class.forName(JDBC_DRIVER);
+        } catch (SQLException ex) {
+            Logger.getLogger(vConexion.class.getName()).log(Level.SEVERE, null, ex);
         }
-        //Clic en el mensaje para decirle que sean excepciones especificas.
-        catch(ClassNotFoundException | SQLException e)
-        {
-            //Mostrando mensaje del posible error que tenga
-           JOptionPane.showConfirmDialog(null,e);
-        }
-        return link;
+        
     }
     
+    public void Cerrar() throws SQLException {
+        
+        if(conexion != null){
+            
+            if(!conexion.isClosed()) {
+            
+                conexion.close();
+                
+            }
+        }
+        
+    }
 }

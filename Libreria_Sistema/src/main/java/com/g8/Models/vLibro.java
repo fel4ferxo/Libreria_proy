@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.g8.Datos;
+package com.g8.Models;
 
 /**
  *
@@ -30,10 +30,6 @@ public class vLibro {
         this.descripcion_l = descripcion_l;
         this.precio_l = precio_l;
         this.imagen_link = imagen_link;
-    }
-
-    public vLibro() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     //Constructor Libros

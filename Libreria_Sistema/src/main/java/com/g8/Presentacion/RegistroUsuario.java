@@ -4,6 +4,12 @@
  */
 package com.g8.Presentacion;
 
+import com.g8.Interfaces.DAOUsuario;
+import com.g8.Logica.fUsuario;
+import com.g8.Models.vUsuario;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author ferna
@@ -31,15 +37,15 @@ public class RegistroUsuario extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         tfNombre = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        tfNombre1 = new javax.swing.JTextField();
-        tfNombre3 = new javax.swing.JTextField();
+        tfApellido = new javax.swing.JTextField();
+        tfDni = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        tfNombre4 = new javax.swing.JTextField();
+        tfNacimiento = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        tfNombre5 = new javax.swing.JTextField();
+        tfUsuario = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        tfNombre6 = new javax.swing.JTextField();
+        tfContrasena = new javax.swing.JTextField();
         btnBorrar = new javax.swing.JButton();
         btnGuardar = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
@@ -61,7 +67,7 @@ public class RegistroUsuario extends javax.swing.JPanel {
 
         jLabel6.setText("Usuario");
 
-        jLabel7.setText("Usuario");
+        jLabel7.setText("Password");
 
         btnBorrar.setBackground(new java.awt.Color(255, 0, 51));
         btnBorrar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -78,13 +84,18 @@ public class RegistroUsuario extends javax.swing.JPanel {
         btnGuardar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnGuardar.setText("Guardar");
         btnGuardar.setPreferredSize(new java.awt.Dimension(100, 30));
+        btnGuardar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnGuardarMouseClicked(evt);
+            }
+        });
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
             }
         });
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/istockphoto-1208447875-170667a.jpg"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/g8/Imagenes/istockphoto-1208447875-170667a.jpg"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -116,17 +127,17 @@ public class RegistroUsuario extends javax.swing.JPanel {
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(tfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtTitulo))
-                                .addComponent(tfNombre3, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(tfDni, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(jPanel2Layout.createSequentialGroup()
                                     .addComponent(jLabel2)
                                     .addGap(54, 54, 54)
-                                    .addComponent(tfNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(tfNombre4, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(tfNombre5, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tfApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(tfNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(tfUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(jPanel2Layout.createSequentialGroup()
                                     .addComponent(jLabel7)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(tfNombre6, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(tfContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(108, 108, 108))))
         );
         jPanel2Layout.setVerticalGroup(
@@ -145,23 +156,23 @@ public class RegistroUsuario extends javax.swing.JPanel {
                             .addComponent(jLabel2)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(17, 17, 17)
-                                .addComponent(tfNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(tfApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(14, 14, 14)
                         .addComponent(jLabel4)
                         .addGap(5, 5, 5)
-                        .addComponent(tfNombre3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tfDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(12, 12, 12)
                         .addComponent(jLabel5)
                         .addGap(7, 7, 7)
-                        .addComponent(tfNombre4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tfNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel6)
                         .addGap(1, 1, 1)
-                        .addComponent(tfNombre5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tfUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(35, 35, 35)
-                                .addComponent(tfNombre6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(tfContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(20, 20, 20)
                                 .addComponent(jLabel7)))
@@ -197,6 +208,24 @@ public class RegistroUsuario extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGuardarActionPerformed
 
+    private void btnGuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarMouseClicked
+        com.g8.Models.vUsuario user = new vUsuario();
+        
+        user.setNombre_u("");
+        user.setApellidos_u("");
+        user.setDni_u("");
+        user.setFecha_nacimiento_u("");
+        user.setUsuario_u("");
+        user.setPassword_u("");
+        
+        try {
+            DAOUsuario dao = new fUsuario();
+            dao.registrar(user);
+        } catch (Exception ex) {
+            Logger.getLogger(RegistroUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnGuardarMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBorrar;
@@ -209,12 +238,12 @@ public class RegistroUsuario extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JTextField tfApellido;
+    private javax.swing.JTextField tfContrasena;
+    private javax.swing.JTextField tfDni;
+    private javax.swing.JTextField tfNacimiento;
     private javax.swing.JTextField tfNombre;
-    private javax.swing.JTextField tfNombre1;
-    private javax.swing.JTextField tfNombre3;
-    private javax.swing.JTextField tfNombre4;
-    private javax.swing.JTextField tfNombre5;
-    private javax.swing.JTextField tfNombre6;
+    private javax.swing.JTextField tfUsuario;
     private javax.swing.JLabel txtTitulo;
     // End of variables declaration//GEN-END:variables
 }

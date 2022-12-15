@@ -6,17 +6,65 @@ package com.g8.Logica;
  * @author Fernando Reinoso Revilla
  */
 
-import com.g8.Datos.vLibro;
+import com.g8.Interfaces.DAOLibro;
+import com.g8.Models.vLibro;
 import com.mysql.jdbc.Statement;
 import java.sql.Connection;
 import javax.swing.table.DefaultTableModel;
 import java.sql.*;
+import java.util.List;
 import javax.swing.JOptionPane;
 
-public class fLibro {
-    
+public class fLibro extends vConexion implements DAOLibro {
+
+    @Override
+    public void registrar(vLibro libro) throws Exception {
+        
+        var sSQL="insert into vlibro (nombre_l,autor_l,aniopub_l,volumen_l,edicion_l,descripcion_l,precio_l,imagen_link)" + "values (?,?,?,?,?,?,?,?)";
+        try {
+
+            PreparedStatement pst=this.conexion.prepareStatement(sSQL);
+            pst.setString(1, libro.getNombre_l());
+            pst.setString(2, libro.getAutor_l());
+            pst.setString(3, libro.getAniopub_l());
+            pst.setString(4, libro.getVolumen_l());
+            pst.setString(5, libro.getEdicion_l());
+            pst.setString(6, libro.getDescripcion_l());
+            pst.setString(7, libro.getPrecio_l());
+            pst.setString(8, libro.getImagen_link());
+            
+            int n=pst.executeUpdate();
+
+        } catch (Exception e){
+        
+            throw e;
+            
+        } finally {
+        
+            this.Cerrar();
+            
+        }
+        
+    }
+
+    @Override
+    public void modificar(vLibro libro) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void eliminar(vLibro libro) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public List<vLibro> listar() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+  
+    /*
     private vConexion mysql = new vConexion ();
-    private Connection cn = mysql.conectar();
+    private Connection cn = mysql.conexion;
     private String sSQL = "";    
 
     public DefaultTableModel mostrar(String buscar)
@@ -137,5 +185,5 @@ public class fLibro {
            return false;
        }
    }
-    
+    */
 }
