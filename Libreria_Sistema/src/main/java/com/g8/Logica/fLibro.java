@@ -1,12 +1,12 @@
 
-package Logica;
+package com.g8.Logica;
 
 /**
  *
  * @author Fernando Reinoso Revilla
  */
 
-import Datos.vLibro;
+import com.g8.Datos.vLibro;
 import com.mysql.jdbc.Statement;
 import java.sql.Connection;
 import javax.swing.table.DefaultTableModel;

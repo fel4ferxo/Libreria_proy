@@ -1,4 +1,4 @@
-package Presentacion;
+package com.g8.Presentacion;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.time.LocalDate;
@@ -104,10 +104,12 @@ public class DashBord extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/libro.jpg"))); // NOI18N
 
+        btn2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/account-multiple.png"))); // NOI18N
         btn2.setText("Registro Usuario");
 
         appName.setText("Libreria G8");
 
+        btn1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/home-outline.png"))); // NOI18N
         btn1.setText("Tienda");
         btn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,6 +117,7 @@ public class DashBord extends javax.swing.JFrame {
             }
         });
 
+        btn4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/file-chart.png"))); // NOI18N
         btn4.setText("Reporte Ventas");
         btn4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,6 +125,7 @@ public class DashBord extends javax.swing.JFrame {
             }
         });
 
+        btn3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/book-open-page-variant.png"))); // NOI18N
         btn3.setText("Inventario");
 
         javax.swing.GroupLayout MenuLayout = new javax.swing.GroupLayout(Menu);

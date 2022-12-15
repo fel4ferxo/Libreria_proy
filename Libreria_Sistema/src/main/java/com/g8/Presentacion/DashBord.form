@@ -151,6 +151,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="btn2">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Imagenes/account-multiple.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Registro Usuario"/>
               </Properties>
             </Component>
@@ -161,6 +164,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="btn1">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Imagenes/home-outline.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Tienda"/>
               </Properties>
               <Events>
@@ -169,6 +175,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="btn4">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Imagenes/file-chart.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Reporte Ventas"/>
               </Properties>
               <Events>
@@ -177,6 +186,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="btn3">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Imagenes/book-open-page-variant.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Inventario"/>
               </Properties>
             </Component>

@@ -2,14 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Logica;
+package com.g8.Logica;
 
 /**
  *
  * @author Fernando Reinoso Revilla
  */
 
-import Datos.vRegistroVentas;
+import com.g8.Datos.vRegistroVentas;
 import com.mysql.jdbc.Statement;
 import java.sql.Connection;
 import javax.swing.table.DefaultTableModel;
