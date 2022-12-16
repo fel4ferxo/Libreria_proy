@@ -14,8 +14,8 @@ import java.util.List;
 public interface DAOUsuario {
     
     public void registrar (vUsuario usuario) throws Exception;
-    public void modificar (vUsuario usuario) throws Exception;
-    public void eliminar (vUsuario usuario) throws Exception;
+    public boolean modificar (vUsuario usuario) throws Exception;
+    public boolean eliminar (vUsuario usuario) throws Exception;
     public List<vUsuario> listar() throws Exception;
     
 }

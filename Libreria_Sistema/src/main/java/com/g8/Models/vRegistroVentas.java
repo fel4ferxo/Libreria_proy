@@ -27,6 +27,10 @@ public class vRegistroVentas {
         this.modo_pago = modo_pago;
         this.info_extra = info_extra;
     }
+    
+    public vRegistroVentas() {
+        
+    }
 
     public int getCodigo_r() {
         return codigo_r;

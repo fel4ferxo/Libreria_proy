@@ -54,7 +54,7 @@ public class login extends javax.swing.JFrame {
         libreriaG8.setMaximumSize(new java.awt.Dimension(80, 30));
         libreriaG8.setPreferredSize(new java.awt.Dimension(70, 20));
 
-        logoPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/libro.jpg"))); // NOI18N
+        logoPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/g8/Imagenes/libro.jpg"))); // NOI18N
 
         javax.swing.GroupLayout bg2Layout = new javax.swing.GroupLayout(bg2);
         bg2.setLayout(bg2Layout);

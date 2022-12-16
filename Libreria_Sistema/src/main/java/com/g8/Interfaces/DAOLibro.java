@@ -13,7 +13,7 @@ import java.util.List;
  */
 public interface DAOLibro {
     public void registrar (vLibro libro) throws Exception;
-    public void modificar (vLibro libro) throws Exception;
-    public void eliminar (vLibro libro) throws Exception;
+    public boolean modificar (vLibro libro) throws Exception;
+    public boolean eliminar (vLibro libro) throws Exception;
     public List<vLibro> listar() throws Exception;
 }
