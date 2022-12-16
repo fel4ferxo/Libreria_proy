@@ -73,13 +73,13 @@ public class Inventario extends javax.swing.JPanel {
 
         tbLibros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Codigo", "Titulo", "Autor", "Año de Publicación", "Volumen", "Edición", "Descripción", "Precio Unitario"
             }
         ));
         jScrollPane1.setViewportView(tbLibros);
